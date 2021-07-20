@@ -21,15 +21,15 @@ exports.signIn = async (req,res) => {
                 message: 'Email or password is wrong'
             });
         } else {
-            // try {
-            //     if(await bcrpyt.compare(req.body.password,user.password)) {
-            //         res.send('success');
-            //     } else {
-            //         res.send('Not allowed');
-            //     }
-            // } catch {
+            try {
+                if(await bcrpyt.compare(req.body.password,user.password)) {
+                    res.send('success');
+                } else {
+                    res.send('Not allowed');
+                }
+            } catch {
 
-            // }
+            }
             res.json({
                 success: true,
                 payload: user
@@ -51,9 +51,9 @@ exports.signUp = async (req,res) => {
     const validateResult = schema.validate(req.body);
     const {error} = validateResult;
     if(!error) {
-        // const salt = await bcrpyt.genSalt();
-        // const hashedPassword = await bcrpyt.hash(req.body.password,salt);
-        // console.log(hashedPassword);
+        const salt = await bcrpyt.genSalt();
+        const hashedPassword = await bcrpyt.hash(req.body.password,salt);
+        console.log(hashedPassword);
         const savedUser = await UsersModel.create({
             name: req.body.name,
             name: req.body.email,
