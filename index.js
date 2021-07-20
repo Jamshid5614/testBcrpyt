@@ -16,6 +16,8 @@ app.get("/image", (req, res) => {
     .toFile("jj.jpg", function (err) {});
 });
 
+console.log('frfrfrfr')
+
 mongoose
   .connect("mongodb://localhost/Users", {
     useNewUrlParser: true,
