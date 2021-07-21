@@ -27,13 +27,13 @@ exports.signIn = async (req,res) => {
                 } else {
                     res.send('Not allowed');
                 }
+                res.json({
+                    success: true,
+                    payload: user
+                })
             } catch {
 
             }
-            res.json({
-                success: true,
-                payload: user
-            })
         }
     } else {
         res.status(400).send({
