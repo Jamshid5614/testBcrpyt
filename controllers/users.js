@@ -2,7 +2,7 @@ const UsersModel = require('../models/user')
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-// const bcrpyt = require('bcrpyt');
+const bcrpyt = require('bcrpyt');
 
 
 
